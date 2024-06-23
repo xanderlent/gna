@@ -431,6 +431,8 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
   endif()
 endif()
 
+include(GNUInstallDirs)
+
 if (NOT DEFINED CMAKE_INSTALL_BINDIR)
     set (CMAKE_INSTALL_BINDIR bin)
 endif()
@@ -449,7 +451,7 @@ install(TARGETS gna-api EXPORT GnaTargets
   INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 install(FILES ${api_headers}
-  DESTINATION include/gna${GNA_VERSION_MAJOR})
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/gna${GNA_VERSION_MAJOR})
 
 # package version
 include(CMakePackageConfigHelpers)
@@ -460,7 +462,7 @@ write_basic_package_version_file(
 
 install(
   FILES ${CMAKE_CURRENT_BINARY_DIR}/gna-config-version.cmake
-  DESTINATION lib/cmake/gna${GNA_VERSION_MAJOR})
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/gna${GNA_VERSION_MAJOR})
 
 # build directory export
 export(TARGETS gna-api
@@ -470,4 +472,4 @@ export(TARGETS gna-api
 install(EXPORT GnaTargets
   FILE gna-config.cmake
   NAMESPACE Gna::
-  DESTINATION lib/cmake/gna${GNA_VERSION_MAJOR})
+  DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/gna${GNA_VERSION_MAJOR})
