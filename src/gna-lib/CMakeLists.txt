@@ -422,14 +422,14 @@ if(${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
 endif()
 
 #strip symbols on linux
-if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
-  if(${CMAKE_BUILD_TYPE} STREQUAL "LNX_RELEASE")
-    add_custom_command(TARGET gna-api POST_BUILD
-      COMMAND cp $<TARGET_FILE:gna-api> $<TARGET_FILE:gna-api>.dbg
-      COMMAND strip --only-keep-debug $<TARGET_FILE:gna-api>.dbg
-      COMMAND strip --strip-unneeded $<TARGET_FILE:gna-api>)
-  endif()
-endif()
+#if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
+#  if(${CMAKE_BUILD_TYPE} STREQUAL "LNX_RELEASE")
+#    add_custom_command(TARGET gna-api POST_BUILD
+#      COMMAND cp $<TARGET_FILE:gna-api> $<TARGET_FILE:gna-api>.dbg
+#      COMMAND strip --only-keep-debug $<TARGET_FILE:gna-api>.dbg
+#      COMMAND strip --strip-unneeded $<TARGET_FILE:gna-api>)
+#  endif()
+#endif()
 
 include(GNUInstallDirs)
 
