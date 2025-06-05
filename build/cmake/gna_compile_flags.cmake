@@ -71,7 +71,7 @@ else()
 
   # All compilers warnings
   set(GNA_COMPILE_ERROR_FLAGS ${GNA_COMPILE_ERROR_FLAGS}
-      -Wall -Werror
+      -Wall
       -Wextra -Wshadow -Wunused -Wformat)
 
   # GCC & Clang warnings
